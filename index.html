@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Method</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: #0d0d0d;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        min-height: 100vh;
+    }
+
+    .container {
+        background: #1a1a1a;
+        width: 100%;
+        max-width: 420px;
+        padding: 25px;
+        border-radius: 14px;
+        box-shadow: 0 0 20px rgba(255,0,0,0.2);
+        border: 1px solid #333;
+    }
+
+    h2 {
+        color: #fff;
+        margin-bottom: 20px;
+        font-size: 24px;
+    }
+    h2 span { color: #ff3333; }
+
+    .option {
+        display: flex;
+        align-items: center;
+        background: #0f0f0f;
+        padding: 16px;
+        margin-bottom: 12px;
+        border-radius: 10px;
+        border: 1px solid #333;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+
+    .option:hover {
+        background: #1e1e1e;
+    }
+
+    .option.selected {
+        border: 2px solid #ff3333;
+        background: #191919;
+        box-shadow: 0 0 12px rgba(255,0,0,0.4);
+    }
+
+    .icon {
+        width: 45px;
+        height: 45px;
+        margin-right: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .icon img {
+        width: 100%;
+    }
+
+    .option label {
+        color: #fff;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    input[type="radio"] {
+        display: none;
+    }
+
+    .checkmark {
+        margin-left: auto;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        border: 2px solid #666;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .option.selected .checkmark {
+        border-color: #ff3333;
+        background: #ff3333;
+    }
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Select a <span>payment</span> method</h2>
+
+    <!-- Paytm -->
+    <div class="option" onclick="selectOption(this, 'paytm')">
+        <input type="radio" name="payment" id="paytm">
+        <div class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Paytm_logo.png"></div>
+        <label for="paytm">Paytm</label>
+        <div class="checkmark"></div>
+    </div>
+
+    <!-- PhonePe -->
+    <div class="option" onclick="selectOption(this, 'phonepe')">
+        <input type="radio" name="payment" id="phonepe">
+        <div class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/PhonePe_Logo.png"></div>
+        <label for="phonepe">PhonePe</label>
+        <div class="checkmark"></div>
+    </div>
+
+    <!-- GPay -->
+    <div class="option" onclick="selectOption(this, 'gpay')">
+        <input type="radio" name="payment" id="gpay">
+        <div class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Google_Pay_Logo_%282020%29.svg"></div>
+        <label for="gpay">GPay</label>
+        <div class="checkmark"></div>
+    </div>
+
+    <!-- Net Banking -->
+    <div class="option" onclick="selectOption(this, 'netbanking')">
+        <input type="radio" name="payment" id="netbanking">
+        <div class="icon"><img src="https://cdn-icons-png.flaticon.com/512/3208/3208726.png"></div>
+        <label for="netbanking">Net Banking</label>
+        <div class="checkmark"></div>
+    </div>
+
+</div>
+
+<script>
+function selectOption(element, id) {
+    document.querySelectorAll('.option').forEach(opt => {
+        opt.classList.remove('selected');
+    });
+
+    element.classList.add('selected');
+    document.getElementById(id).checked = true;
+}
+</script>
+
+</body>
+</html>
